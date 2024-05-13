@@ -3,6 +3,7 @@
 ## Development 
 
 Clone repo and install dependencies. 
+Copy the env.example to .env when on development. No need to update the values. 
 
 ```bash
 pnpm i
