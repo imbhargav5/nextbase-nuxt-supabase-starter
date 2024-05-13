@@ -1,5 +1,5 @@
 <template>
-    <div class="buJnuC">
+    <div>
         <p>Logged in</p>
         <slot />
     </div>
