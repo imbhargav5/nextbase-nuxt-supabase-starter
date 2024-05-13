@@ -1,7 +1,12 @@
 export default defineNuxtConfig({
   modules: ['@nuxtjs/supabase', '@nuxtjs/tailwindcss'],
-  tailwindcss: {
-    cssPath: '~/assets/css/tailwind.postcss'
+  devtools: { enabled: true },
+  css: ['~/assets/css/main.css'],
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
   },
   imports:{
     dirs: ["~/lib"]
