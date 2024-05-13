@@ -1,0 +1,10 @@
+node_modules
+*.log*
+.nuxt
+.nitro
+.cache
+.output
+dist
+.env
+supabase/.temp
+supabase/.branches
