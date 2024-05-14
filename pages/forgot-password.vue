@@ -1,29 +1,19 @@
 <template>
-  <div class="DaoRb">
-    <h1 class="eSHwvX">Forgot password</h1>
-    <form @submit.prevent="resetPassword">
-      <ErrorAlert :error-msg="authError" @clearError="clearError" />
-      <SuccessAlert :success-msg="authSuccess" @clearSuccess="clearSuccess" />
-      <div class="jGQTZC">
-        <label class="iJLvzO">
-          <div class="fdCSlG">
-            <input class="cmCuLh" type="text" placeholder="Email address" v-model="email">
-          </div>
-        </label>
-      </div>
-      <button class="gZMQdu" type="submit" :disabled="loading">
-        <div class="bjhGPG" :class="{loading: loading}">Request</div>
-        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="jjoFVh" :class="{loading: loading}">
-          <g fill="none" stroke-width="1.5" stroke-linecap="round" class="faEWLr" style="stroke: var(--icon-color);">
-            <circle stroke-opacity=".2" cx="8" cy="8" r="6"></circle>
-            <circle cx="8" cy="8" r="6" class="VFMrX"></circle>
-          </g>
-        </svg>
-      </button>
-    </form>
-  </div>
+  <Header />
+   <div class="">
+   
+   <div class="flex flex-col md:flex-row">
+   <div class="mt-[8%]">
+     <LoginSignUpText title="Forget Password" description="Enter your email to recieve a Magic Link to reset your password." class="w-4/6 mx-auto"/>
+      <ForgetPassword/>
+   </div>
+  
+      <StaticTestimony class="hidden md:block lg:block"/>
+   </div>
+   </div>
+  
+  <Footer />
 </template>
-
 <script setup lang="ts">
 definePageMeta({
   layout: "auth"

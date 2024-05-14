@@ -31,5 +31,56 @@ const clearError = () => {
 </script>
 
 <style lang="postcss">
-
+.cOKwvV {
+  @apply mb-4 gap-2 text-left flex relative;
+  padding: 8px 20px 8px 8px;
+  border-radius: 5px;
+  background: rgb(255, 255, 255);
+  box-shadow: inset 0 0 0 9999px var(--notification-pale),inset 0 0 0 1px var(--notification-light), 0 2px 6px var(--notification-shadow);
+  color: var(--notification-dark);
+  transition: opacity 0.2s ease 0s;
+  --notification-color: #D62B20;
+  --notification-dark: #d10000;
+  --notification-light: #d62b2066;
+  --notification-shadow: #d62b2026;
+  --notification-shadow-light: #d62b2014;
+  --notification-pale: #d62b201a;
+  --notification-transparent: #d62b2000;
+  &::before {
+    @apply w-40 absolute left-0 top-0 bottom-0 pointer-events-none;
+    content: '';
+    border-radius: 5px 0px 0px 5px;
+    background-image: linear-gradient(120deg,var(--notification-color) 0%,var(--notification-transparent) 55%);
+    opacity: 0.15;
+  }
+}
+.ckmpXq {
+  @apply w-6 h-6 flex justify-center items-center;
+  & svg{
+    --icon-color: var(--notification-dark);
+    --icon-size: 18px;
+  }
+}
+.cAmQly {
+  @apply m-0 leading-6 text-sm font-medium;
+}
+.dgcJHV {
+  @apply ml-auto flex;
+  gap: 5px;
+}
+.dVKHAC {
+  @apply cursor-pointer w-6 h-6 p-1 box-border ml-auto -mr-3;
+  border-radius: 3px;
+  transition: background-color 0.2s ease 0s, transform 0.2s ease 0s;
+  & svg{
+    --icon-size: 16px;
+    --icon-color: var(--notification-dark);
+  }
+  &:hover{
+    background-color: var(--notification-pale);
+  }
+  &:active{
+    transform: scale(0.975);
+  }
+}
 </style>

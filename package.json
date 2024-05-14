@@ -10,15 +10,23 @@
   "devDependencies": {
     "@nuxt/types": "^2.17.3",
     "@nuxtjs/supabase": "^0.3.1",
-    "@nuxtjs/tailwindcss": "^6.6.5",
+    "@nuxtjs/tailwindcss": "^6.12.0",
     "nuxt": "^3.4.3",
+    "shadcn-nuxt": "^0.10.4",
     "supabase": "^1.165.0"
   },
   "dependencies": {
     "@supabase/ssr": "^0.3.0",
     "@supabase/supabase-js": "^2.26.0",
+    "@vueuse/core": "^10.9.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "crypto-js": "^4.2.0",
+    "lucide-vue-next": "^0.378.0",
     "path-to-regexp": "^6.2.2",
+    "radix-vue": "^1.7.4",
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss-animate": "^1.0.7",
     "url-join": "^5.0.0",
     "zod": "^3.23.8"
   }
