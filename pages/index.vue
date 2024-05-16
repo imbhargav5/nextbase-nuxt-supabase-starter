@@ -11,7 +11,7 @@
     </div>
 
     <div v-if="user">
-      <button @click="logout"  :disabled="loading">
+      <Button @click="logout"  :disabled="loading">
         <span  :class="{loading: loading}">
           Log out
         </span>
@@ -21,7 +21,7 @@
             <circle cx="8" cy="8" r="6" class="VFMrX"></circle>
           </g>
         </svg>
-      </button>
+      </Button>
 
       <NuxtLink  to="/dashboard">
         <span>
@@ -34,7 +34,7 @@
       </NuxtLink>
     </div>
     <div class="uQxNj" v-else>
-      <NuxtLink  to="/login">
+      <Button  to="/login">
         <span >
           Login 
           <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" >
@@ -42,19 +42,20 @@
             <path class="stem" d="M12 8L2 8" stroke-width="1.5"></path>
           </svg>
         </span>
-      </NuxtLink>
+      </Button>
       <NuxtLink to="/register">
-        <button>
+        <Button>
           <span >
             Sign up
           </span>
-        </button>
+        </Button>
       </NuxtLink>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { Button } from '@/components/ui/button'
 const client = useSupabaseAuthClient()
 const user = useSupabaseUser()
 const loading = ref(false)

@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/supabase', '@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/supabase', '@nuxtjs/tailwindcss', "shadcn-nuxt"],
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
   postcss: {
@@ -25,6 +25,17 @@ export default defineNuxtConfig({
       ]
     }
   },
+  shadcn: {
+    /**
+     * Prefix for all the imported component
+     */
+    prefix: '',
+    /**
+     * Directory that the component lives in.
+     * @default "./components/ui"
+     */
+    componentDir: './components/ui'
+  }
 
   
 })
