@@ -1,14 +1,13 @@
 <template>
-  <div class="">
-    <p v-if="user" >Hi {{ user.user_metadata.first_name }}</p>
-    <p v-else >unauthenticated</p>
-    <h1>
-      Nextbase Nuxt3 + Supabase starter kit      
-    </h1>
-
-    <div>
+  <div class="container">
+    <Home/>
+    
+    <!-- <p v-if="user" >Hi {{ user.user_metadata.first_name }}</p>
+    <p v-else >unauthenticated</p> -->
+   
+    <!-- <div>
       <AnonItemsList/>
-    </div>
+    </div> -->
 
     <!-- <div v-if="user">
       <Button @click="logout"  :disabled="loading">
@@ -56,6 +55,9 @@
 
 <script setup lang="ts">
 import { Button } from '@/components/ui/button'
+import HomeBlackBgButton from '@/components/Home/BlackBgButton.vue';
+import HomeBlackOutlineButton from '@/components/Home/BlackOutlineButton.vue';
+
 const client = useSupabaseAuthClient()
 const user = useSupabaseUser()
 const loading = ref(false)
