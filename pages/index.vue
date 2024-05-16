@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div class="">
     <p v-if="user" >Hi {{ user.user_metadata.first_name }}</p>
     <p v-else >unauthenticated</p>
     <h1>
@@ -10,7 +10,7 @@
       <AnonItemsList/>
     </div>
 
-    <div v-if="user">
+    <!-- <div v-if="user">
       <Button @click="logout"  :disabled="loading">
         <span  :class="{loading: loading}">
           Log out
@@ -50,7 +50,7 @@
           </span>
         </Button>
       </NuxtLink>
-    </div>
+    </div> -->
   </div>
 </template>
 
