@@ -1,32 +1,32 @@
 <template>
-  <div class=" md:flex justify-around py-6">
+  <div class=" md:flex justify-around pt-3 pb-6">
      <div class="w-100 md:w-[2/5]">
-        <div class="container w-5/5 mx-auto">
+        <div class="container w-4/5 mx-auto">
            <h1 class="mt-8 scroll-m-20 text-xl font-semibold tracking-tight mb-2">Login to Nextbase</h1>
-           <p class="leading-7 mb-6 text-base font-normal text-gray-400">Login with the account you used to signup.</p>
+           <p class="leading-7 mb-6 text-sm font-normal text-gray-800">Login with the account you used to signup.</p>
            <div>
               <form @submit.prevent="login">
                  <ErrorAlert :error-msg="authError" @clearError="clearError" />
                  <!-- Third party Authentication -->
                  <ThirdPartyAuthenticatioBtns/>
-                 <hr class=" my-8 ">
+                 <hr class=" my-8  w-[24rem]">
                  <!-- Magic Link -->
                  <div class="jGQTZC">
                  <div class="grid w-full max-w-sm items-center gap-1.5">
                     <label for="magiclink-email" class="text-sm font-normal leading-none peer-disabled:cursor-not-allowed text-gray-400 ">Email address</label>
-                    <Input id="magiclink-email" type="email" placeholder="placeholder@gmail.com"  v-model="email"/>
+                    <Input id="magiclink-email" type="email" placeholder="placeholder@gmail.com" class="w-[24rem]"  v-model="email"/>
                  </div>
               </div>
                 <Button type="button" :disabled="loading" class="mt-3 w-[24rem]">Login with Magic Link</Button>
-                 <hr class="my-8">
+                 <hr class="my-8  w-[24rem]">
                  <!-- Email Password Login-->
                  <div class="grid w-full max-w-sm items-center gap-1.5 my-3">
                     <label for="email" class="text-sm font-normal leading-none peer-disabled:cursor-not-allowed text-gray-400 ">Email address</label>
-                    <Input id="email" type="email" placeholder="placeholder@gmail.com" v-model="email"/>
+                    <Input id="email" type="email" placeholder="placeholder@gmail.com" v-model="email" class="w-[24rem]" />
                  </div>
                  <div class="grid w-full max-w-sm items-center gap-1.5 my-3">
                     <label for="email" class="text-sm font-normal leading-none peer-disabled:cursor-not-allowed text-gray-400 ">Password</label>
-                    <Input id="email" type="email" placeholder="Type your password" v-model="password"/>
+                    <Input id="email" type="email" placeholder="Type your password" v-model="password" class="w-[24rem]" />
                  </div>
                  <div>
                  </div>
