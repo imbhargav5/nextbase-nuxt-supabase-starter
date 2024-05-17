@@ -1,58 +1,60 @@
 <template>
-  <div class="DaoRb">
-    <h1 class="eSHwvX">Create an account</h1>
-    <form @submit.prevent="signUp">
-      <ErrorAlert :error-msg="authError" @clearError="clearError" />
-      <div class="jGQTZC">
-        <label class="iJLvzO">
-          <div class="fdCSlG">
-            <input class="cmCuLh" type="text" placeholder="First name" v-model="name" />
-          </div>
-        </label>
-        <label class="iJLvzO">
-          <div class="fdCSlG">
-            <input class="cmCuLh" type="text" placeholder="Last name" v-model="lastname" />
-          </div>
-        </label>
-        <label class="iJLvzO">
-          <div class="fdCSlG">
-            <input class="cmCuLh" type="text" placeholder="Company (Optional)" v-model="company" />
-          </div>
-        </label>
-        <label class="iJLvzO">
-          <div class="fdCSlG">
-            <input class="cmCuLh" type="text" placeholder="Email address" v-model="email" />
-          </div>
-        </label>
-        <label class="iJLvzO">
-          <div class="fdCSlG">
-            <input class="cmCuLh" type="password" placeholder="Password" v-model="password" />
-          </div>
-        </label>
-      </div>
-      <div class="jGQTZC">
-        <button class="gZMQdu" type="submit" :disabled="loading">
-          <div class="bjhGPG" :class="{loading: loading}">Sign up</div>
-          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="jjoFVh" :class="{loading: loading}">
-            <g fill="none" stroke-width="1.5" stroke-linecap="round" class="faEWLr" style="stroke: var(--icon-color);">
-              <circle stroke-opacity=".2" cx="8" cy="8" r="6"></circle>
-              <circle cx="8" cy="8" r="6" class="VFMrX"></circle>
-            </g>
-          </svg>
-        </button>
-        <div class="xxEKN">
-          By signing up you agree to our
-          <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" class="bkFclS">
-            <span>API Terms of Service</span>
-          </a>
-          and
-          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="bkFclS">
-            <span>Privacy Policy</span>
-          </a>.
+   <div class=" md:flex justify-around pt-3 pb-6">
+     <div class="w-100 md:w-[2/5]">
+        <div class="container w-4/5 mx-auto">
+           <h1 class="mt-8 scroll-m-20 text-xl font-semibold tracking-tight mb-2">Signup to Nextbase</h1>
+           <p class="leading-7 mb-6 text-sm font-normal text-gray-800">How would you like to signup?</p>
+           <div>
+              <form @submit.prevent="signUp">
+                 <ErrorAlert :error-msg="authError" @clearError="clearError" />
+                 <!-- Third party Authentication -->
+                 <ThirdPartyAuthenticatioBtns/>
+                 <hr class=" my-8  w-[24rem]">
+                 <!-- Magic Link -->
+                 <div class="jGQTZC">
+                 <div class="grid w-full max-w-sm items-center gap-1.5">
+                    <label for="magiclink-email" class="text-sm font-normal leading-none peer-disabled:cursor-not-allowed text-gray-400 ">Email address</label>
+                    <Input id="magiclink-email" type="email" placeholder="placeholder@gmail.com" class="w-[24rem]"   v-model="email"/>
+                 </div>
+              </div>
+                <Button type="button" :disabled="loading" class="mt-3 w-[24rem]">Sign up</Button>
+                 <hr class="my-8 w-[24rem]">
+                 <!-- Email Password Login-->
+                 <div class="grid w-full max-w-sm items-center gap-1.5 my-3">
+                    <label for="email" class="text-sm font-normal leading-none peer-disabled:cursor-not-allowed text-gray-400 ">Email address</label>
+                    <Input id="email" type="email" placeholder="placeholder@gmail.com" class="w-[24rem]"  v-model="email"/>
+                 </div>
+                 <div class="grid w-full max-w-sm items-center gap-1.5 my-3">
+                    <label for="email" class="text-sm font-normal leading-none peer-disabled:cursor-not-allowed text-gray-400 ">Password</label>
+                    <Input id="email" type="email" placeholder="Type your password" class="w-[24rem]"  v-model="password"/>
+                 </div>
+                 <div>
+                 </div>
+                 <div class="flex justify-between">
+                    <NuxtLink to="/login"  class=" my-2 text-sm text-blue-600 ">
+                       Login instead?
+                    </NuxtLink>
+                    
+                 </div>
+                 <Button type="submit" :disabled="loading" class="mt-3 w-[24rem]">Sign up</Button>
+              </form>
+              <div class="hidden">
+                 <p>Don’t have a SupaAuth account?</p>
+                 <NuxtLink to="/register">
+                    <button>
+                       <div>Create new account</div>
+                    </button>
+                 </NuxtLink>
+              </div>
+           </div>
+        
         </div>
-      </div>
-    </form>
+     </div>
+     <div class="hidden md:block w-[2/5]">
+        <AuthenticationStaticSection/>
+     </div>
   </div>
+ 
 </template>
 
 <script setup lang="ts">
