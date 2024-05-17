@@ -2,8 +2,7 @@
   <div >
     <NuxtLink  to="/login">
       <div >
-
-        Login
+        Login Instead?
       </div>
     </NuxtLink>
   </div>

@@ -2,12 +2,14 @@
   <div >
     <div >
       <div >
-        <AppBackToLogin />
+        <!-- <AppBackToLogin /> -->
+        <Header/>
         <div >
           <div >
             <slot />
           </div>
         </div>
+        <Footer/>
 
       </div>
     </div>
