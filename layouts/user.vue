@@ -1,7 +1,8 @@
 <template>
     <div>
-        <p>Logged in</p>
+        <Header/>
         <slot />
+        <Footer/>
     </div>
   </template>
   
