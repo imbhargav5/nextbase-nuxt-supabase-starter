@@ -1,8 +1,8 @@
 <template>
   <ItemsList/>
-  </template>
+</template>
   
-  <script setup lang="ts">
+<script setup lang="ts">
 
   definePageMeta({
     layout: "user",
@@ -14,5 +14,5 @@
     title: 'Dashboard | Nextbase'
   })
 
-  </script>
+</script>
   
