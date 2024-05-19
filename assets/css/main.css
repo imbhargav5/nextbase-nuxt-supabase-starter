@@ -6,3 +6,37 @@ body {
     overflow-x: hidden;
     font-family: Roboto;
 }
+
+/* @font-face {
+    font-family: 'Geist';
+    src: url(/assets/fonts/Geist-Regular.woff2) format('woff2');
+    font-style: normal;
+    font-display: swap;
+} */
+@font-face {
+    font-family: 'Inter';
+    src: url('/assets/fonts/Inter/Inter-Regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist';
+    src: url('/assets/fonts/Geist/Geist-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.font-inter {
+    font-family: Inter;
+}
+
+.font-geist {
+    font-family: Geist;
+}
+
+.table-private-items {
+    border-radius: 10px !important;
+}
