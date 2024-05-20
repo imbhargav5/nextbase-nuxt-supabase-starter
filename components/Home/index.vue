@@ -139,8 +139,6 @@
          </div>
       </div>
    </div>
-   <!-- section 4 -->
-  
-        
+   <!-- section 4 -->    
     </div>
 </template>
