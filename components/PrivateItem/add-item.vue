@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -11,10 +13,39 @@ import {
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { generateId } from '@/utils/idGenerator'
+const router = useRouter();
+const itemName = ref('');
+const itemDescription = ref('');
 
+const addItem = () => {
+  const itemCreationDate = new Date().toLocaleDateString('en-US', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric'
+  })
+  try {
+    const itemId = generateId()
+    router.push({
+      path: '/private-item/item-id',
+      query: {
+        itemId: itemId,
+        name: itemName.value,
+        description: itemDescription.value,
+        date: itemCreationDate
+      }
+    })
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message)
+      alert("Unable to generate a new ID. Please try again later.")
+    } else {
+      console.error("An unknown error occurred")
+    }
+  }
+}
 
 </script>
-
 <template>
   <Dialog>
     <DialogTrigger as-child>
@@ -31,26 +62,26 @@ import { Label } from '@/components/ui/label'
       </DialogHeader>
       <div class="grid gap-4 py-1">
         <div class="gap-4">
-          <Label for="name" class="text-sm text-right font-inter ">
+          <Label for="item-name" class="text-sm text-right font-inter ">
             Name
           </Label>
-          <Input id="name" value="" placeholder="Enter your name..." class="col-span-3 mt-3 font-inter" />
+          <Input v-model="itemName"  id="item-name" type="text" placeholder="Type your password" class="col-span-3 mt-3 font-inter"  />
+      
         </div>
         <div class=" gap-4">
-          <Label for="username" class="text-sm text-right font-inter ">
+          <Label for="item-description" class="text-sm text-right font-inter ">
             Description
           </Label>
-          <Textarea for="username" value="" placeholder="Enter your description" class="col-span-3 mt-3 font-inter" />
+          <Textarea v-model="itemDescription" id="item-description"  placeholder="Enter your description" class="col-span-3 mt-3 font-inter" />
+          
         </div>
       </div>
       <DialogFooter>
-     
-        <Button type="submit"  class="bg-[#0F172A] w-[100%] font-inter font-semibold">
-          <NuxtLink href="/private-item/item-id">
+        
+        <Button type="submit" class="bg-[#0F172A] w-[100%] font-inter font-semibold " @click="addItem" >
             Create Item
-          </NuxtLink>
         </Button>
-    
+  
     
       </DialogFooter>
     </DialogContent>
