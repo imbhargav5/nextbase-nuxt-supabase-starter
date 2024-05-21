@@ -1,15 +1,13 @@
 <template>
    <div class="container">
-      <!--  -->
-      <!--  -->
       <!-- section 1 -->
       <div class="w-full py-12 items-center md:py-16">
          <div class="container px-4 md:px-6">
             <div class="">
               
                <div class="flex flex-col text-center items-center space-y-4">
-                  <div class="inline-block rounded-[10px] bg-gray-100 px-3 font-medium py-1 text-sm dark:bg-gray-800 font-inter">
-                     Introducing Lift Mode
+                  <div class="rounded-[10px] bg-gray-100 px-3 font-medium py-1 text-sm dark:bg-gray-800 font-inter flex">
+                     Introducing Lift Mode   <img src="/assets/images/arrow.png" class="h-[14px] w-[16px] my-auto ms-1">
                   </div>
                   <h2 class="text-[#09090B] font-bold text-3xl  md:text-5xl font-geist">
                      Build your component library
