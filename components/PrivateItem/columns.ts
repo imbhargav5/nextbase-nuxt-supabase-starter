@@ -23,7 +23,10 @@ export const columns: ColumnDef<PrivateItem>[] = [
     header: () => h('div', { class: 'text-left text-sm font-inter font-medium text-[#64748B]' }, 'Title'),
     cell: ({ row }: any) => {
       const title = row.getValue("title");
-      return h('div', { class: 'text-left text-sm font-normal text-[#020817] font-inter' }, title);
+      return h('div', {
+        class: 'text-left text-sm font-normal text-[#020817] font-inter',
+        onClick: (event) => handleRowClick(event, row.original) // Add onClick event
+      }, title);
     },
   },
   {
@@ -32,7 +35,10 @@ export const columns: ColumnDef<PrivateItem>[] = [
     cell: ({ row }: any) => {
       const description = row.getValue("description");
       const truncatedDescription = truncateText(description, 10); // Truncate description to 10 words
-      return h('div', { class: 'text-left text-sm font-normal text-[#020817] font-inter' }, truncatedDescription);
+      return h('div', {
+        class: 'text-left text-sm font-normal text-[#020817] font-inter',
+        onClick: (event) => handleRowClick(event, row.original) // Add onClick event
+      }, truncatedDescription);
     },
   },
   {
@@ -44,3 +50,18 @@ export const columns: ColumnDef<PrivateItem>[] = [
     },
   },
 ];
+
+function handleRowClick(event: Event, item: PrivateItem) {
+  event.stopPropagation(); // Prevent the row click event from firing
+  // You will need to handle the navigation logic here.
+  const router = useRouter();
+  router.push({
+    path: '/private-item/item-id',
+    query: {
+      id: item.id,
+      title: item.title,
+      description: item.description,
+      date: item.date
+    }
+  });
+}

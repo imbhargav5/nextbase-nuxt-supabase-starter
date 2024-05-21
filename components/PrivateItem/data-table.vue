@@ -29,17 +29,17 @@ const table = useVueTable({
   getCoreRowModel: getCoreRowModel(),
 });
 
-const handleRowClick = (item: any) => {
-  router.push({
-    path: '/private-item/item-id',
-    query: {
-      id: item.id,
-      title: item.title,
-      description: item.description,
-      date: item.date
-    }
-  });
-};
+// const handleRowClick = (item: any) => {
+//   router.push({
+//     path: '/private-item/item-id',
+//     query: {
+//       id: item.id,
+//       title: item.title,
+//       description: item.description,
+//       date: item.date
+//     }
+//   });
+// };
 </script>
 
 <template>
@@ -54,9 +54,17 @@ const handleRowClick = (item: any) => {
       </TableHeader>
       <TableBody>
         <template v-if="table.getRowModel().rows?.length">
-          <TableRow v-for="row in table.getRowModel().rows" :key="row.id" :data-state="row.getIsSelected() ? 'selected' : undefined" @click="handleRowClick(row.original)">
+          <TableRow v-for="row in table.getRowModel().rows" :key="row.id" :data-state="row.getIsSelected() ? 'selected' : undefined">
             <TableCell v-for="cell in row.getVisibleCells()" :key="cell.id">
-              <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
+              <!-- Check if the cell is for title or description and add click event -->
+              <template v-if="cell.column.id === 'title' || cell.column.id === 'description'">
+                <div >
+                  <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
+                </div>
+              </template>
+              <template v-else>
+                <FlexRender :render="cell.column.columnDef.cell" :props="cell.getContext()" />
+              </template>
             </TableCell>
           </TableRow>
         </template>
