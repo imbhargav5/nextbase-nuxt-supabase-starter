@@ -3,16 +3,31 @@
 import { MoreHorizontal } from 'lucide-vue-next'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui/button'
+import { useItems } from '~/composables/useItems'; 
 
-defineProps<{
+
+// Define props
+const props = defineProps<{
   privateItem: {
-    title: string
+    id: string | number;
+    title: string;
+    description: string;
+    date: string;
   }
-}>()
+}>();
 
+const { deleteItem } = useItems();
+
+const handleDelete = () => {
+  deleteItem(props.privateItem.id);
+};
 function copy(id: string) {
   navigator.clipboard.writeText(id)
 }
+function editItem(){
+  alert('edit button clicked')
+}
+
 </script>
 
 <template>
@@ -26,8 +41,8 @@ function copy(id: string) {
     <DropdownMenuContent align="end">
       <!-- <DropdownMenuLabel>Actions</DropdownMenuLabel> -->
       <!-- <DropdownMenuSeparator /> -->
-      <DropdownMenuItem>Edit Item</DropdownMenuItem>
-      <DropdownMenuItem>Delete Item</DropdownMenuItem>
+      <DropdownMenuItem @click="editItem">Edit Item</DropdownMenuItem>
+      <DropdownMenuItem @click="handleDelete">Delete Item</DropdownMenuItem>
     </DropdownMenuContent>
   </DropdownMenu>
 </template>
