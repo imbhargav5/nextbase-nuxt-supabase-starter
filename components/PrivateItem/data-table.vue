@@ -1,3 +1,4 @@
+<!-- data-table.vue -->
 <script setup lang="ts" generic="TData, TValue">
 import type { ColumnDef } from '@tanstack/vue-table';
 import {
@@ -21,6 +22,8 @@ const props = defineProps<{
   data: TData[]
 }>();
 
+const emit = defineEmits(['editItem']);
+
 const router = useRouter();
 
 const table = useVueTable({
@@ -28,7 +31,8 @@ const table = useVueTable({
   get columns() { return props.columns; },
   getCoreRowModel: getCoreRowModel(),
 });
-
+ 
+ 
 </script>
 
 <template>

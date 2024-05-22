@@ -58,7 +58,7 @@ function handleRowClick(event: Event, item: PrivateItem) {
   // You will need to handle the navigation logic here.
   const router = useRouter();
   router.push({
-    path: '/private-item/item-id',
+    path: `/private-item/item-id`,
     query: {
       id: item.id,
       title: item.title,

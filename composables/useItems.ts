@@ -1,42 +1,30 @@
-// composables/useItems.ts
+// useItems.ts
 import { ref } from 'vue';
+import type { PrivateItem } from '@/components/PrivateItem/columns'; // Adjust the path as necessary
 
-interface Item {
-  id: string | number;
-  title: string;
-  description: string;
-  date: string;
-}
-
-const items = ref<Item[]>([]);
+const data = ref<PrivateItem[]>([]);
 
 const loadItemsFromLocalStorage = () => {
   const storedItems = localStorage.getItem('privateItems');
   if (storedItems) {
-    items.value = JSON.parse(storedItems);
+    data.value = JSON.parse(storedItems);
   }
 };
 
 const saveItemsToLocalStorage = () => {
-  localStorage.setItem('privateItems', JSON.stringify(items.value));
+  localStorage.setItem('privateItems', JSON.stringify(data.value));
 };
 
-const addItem = (newItem: Item) => {
-  items.value.push(newItem);
-  saveItemsToLocalStorage();
-};
-
-const deleteItem = (itemId: string | number) => {
-  items.value = items.value.filter(item => item.id !== itemId);
+const deleteItem = (id: string | number) => {
+  data.value = data.value.filter(item => item.id !== id);
   saveItemsToLocalStorage();
 };
 
 export const useItems = () => {
   return {
-    items,
+    data,
     loadItemsFromLocalStorage,
     saveItemsToLocalStorage,
-    addItem,
-    deleteItem
+    deleteItem,
   };
 };

@@ -1,33 +1,31 @@
 // DataTableDropDown.vue
 <script setup lang="ts">
-import { MoreHorizontal } from 'lucide-vue-next'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
-import { Button } from '@/components/ui/button'
-import { useItems } from '~/composables/useItems'; 
-
+import { MoreHorizontal } from 'lucide-vue-next';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { Button } from '@/components/ui/button';
+import { useItems } from '~/composables/useItems';
+import type { PrivateItem } from '@/components/PrivateItem/columns'; // Adjust the path as necessary
 
 // Define props
 const props = defineProps<{
-  privateItem: {
-    id: string | number;
-    title: string;
-    description: string;
-    date: string;
-  }
+  privateItem: PrivateItem
 }>();
+
+const emit = defineEmits(['editItem']);
 
 const { deleteItem } = useItems();
 
 const handleDelete = () => {
   deleteItem(props.privateItem.id);
 };
-function copy(id: string) {
-  navigator.clipboard.writeText(id)
-}
-function editItem(){
-  alert('edit button clicked')
-}
 
+const handleEdit = () => {
+  emit('editItem', props.privateItem);
+};
+
+function copy(id: string) {
+  navigator.clipboard.writeText(id);
+}
 </script>
 
 <template>
@@ -39,9 +37,7 @@ function editItem(){
       </Button>
     </DropdownMenuTrigger>
     <DropdownMenuContent align="end">
-      <!-- <DropdownMenuLabel>Actions</DropdownMenuLabel> -->
-      <!-- <DropdownMenuSeparator /> -->
-      <DropdownMenuItem @click="editItem">Edit Item</DropdownMenuItem>
+      <DropdownMenuItem @click="">Edit Item</DropdownMenuItem>
       <DropdownMenuItem @click="handleDelete">Delete Item</DropdownMenuItem>
     </DropdownMenuContent>
   </DropdownMenu>
