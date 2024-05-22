@@ -41,7 +41,9 @@ export const columns: ColumnDef<PrivateItem>[] = [
       }, truncatedDescription);
     },
   },
+
   {
+    header: () => h('div', { class: 'text-left text-sm font-inter font-medium text-[#64748B]' }, 'Actions'),
     id: 'actions',
     enableHiding: false,
     cell: ({ row }) => {

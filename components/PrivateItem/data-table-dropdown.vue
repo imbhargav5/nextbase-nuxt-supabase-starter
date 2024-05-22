@@ -24,8 +24,9 @@ function copy(id: string) {
       </Button>
     </DropdownMenuTrigger>
     <DropdownMenuContent align="end">
-      <DropdownMenuLabel>Actions</DropdownMenuLabel>
+      <!-- <DropdownMenuLabel>Actions</DropdownMenuLabel> -->
       <!-- <DropdownMenuSeparator /> -->
+      <DropdownMenuItem>Edit Item</DropdownMenuItem>
       <DropdownMenuItem>Delete Item</DropdownMenuItem>
     </DropdownMenuContent>
   </DropdownMenu>

@@ -2,13 +2,12 @@ let currentId = 0;
 const usedIds = new Set();
 
 export function generateId() {
-    if (currentId < 1000) {
+    currentId++;
+    while (usedIds.has(currentId)) {
         currentId++;
-        usedIds.add(currentId);
-        return currentId;
-    } else {
-        throw new Error("No more available IDs");
     }
+    usedIds.add(currentId);
+    return currentId;
 }
 
 export function resetIdGenerator() {

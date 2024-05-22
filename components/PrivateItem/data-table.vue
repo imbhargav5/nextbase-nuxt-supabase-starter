@@ -29,17 +29,6 @@ const table = useVueTable({
   getCoreRowModel: getCoreRowModel(),
 });
 
-// const handleRowClick = (item: any) => {
-//   router.push({
-//     path: '/private-item/item-id',
-//     query: {
-//       id: item.id,
-//       title: item.title,
-//       description: item.description,
-//       date: item.date
-//     }
-//   });
-// };
 </script>
 
 <template>
