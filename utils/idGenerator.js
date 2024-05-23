@@ -1,16 +1,16 @@
-let currentId = 0;
+import { v4 as uuidv4 } from 'uuid';
+
 const usedIds = new Set();
 
 export function generateId() {
-    currentId++;
-    while (usedIds.has(currentId)) {
-        currentId++;
+    let newId = uuidv4();
+    while (usedIds.has(newId)) {
+        newId = uuidv4();
     }
-    usedIds.add(currentId);
-    return currentId;
+    usedIds.add(newId);
+    return newId;
 }
 
 export function resetIdGenerator() {
-    currentId = 0;
     usedIds.clear();
 }

@@ -20,7 +20,6 @@ const router = useRouter();
 const itemName = ref('');
 const itemDescription = ref('');
 const emit = defineEmits(['addItem']);
-
 const addItem = () => {
   const itemCreationDate = new Date().toLocaleDateString('en-US', {
     day: 'numeric',
@@ -37,16 +36,15 @@ const addItem = () => {
       date: itemCreationDate
     };
 
+    console.log('Saving item:', newItem); // Debug log
+
+    // Store the new item in local storage
+    localStorage.setItem('selectedItem', JSON.stringify(newItem));
+
     emit('addItem', newItem);
 
     router.push({
-      path: `/private-item/item-id`,
-      query: {
-        id: newItem.id,
-        title: newItem.title,
-        description: newItem.description,
-        date: newItem.date
-      }
+      path: `/private-item/${newItem.id}`
     });
   } catch (error) {
     if (error instanceof Error) {

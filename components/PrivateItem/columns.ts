@@ -52,18 +52,14 @@ export const columns: ColumnDef<PrivateItem>[] = [
     },
   },
 ];
-
 function handleRowClick(event: Event, item: PrivateItem) {
-  event.stopPropagation(); // Prevent the row click event from firing
-  // You will need to handle the navigation logic here.
+  event.stopPropagation();
+   
+  // Store the item data in local storage
+  localStorage.setItem('selectedItem', JSON.stringify(item));
+
   const router = useRouter();
   router.push({
-    path: `/private-item/item-id`,
-    query: {
-      id: item.id,
-      title: item.title,
-      description: item.description,
-      date: item.date
-    }
+    path: `/private-item/${item.id}`
   });
 }
